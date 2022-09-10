@@ -17,12 +17,12 @@
           <mat-card-content>
           <mat-form-field class="form-element formInput" appearance="outline">
             <mat-label>Character Name </mat-label>
-            <input matInput type="text" id="characterName">
+            <input matInput [(ngModel)]="name" type="text" id="characterName">
           </mat-form-field>
 
           <mat-form-field class="form-element formInput" appearance="outline">
             <mat-label>Region </mat-label>
-            <input matInput type="text" id="Region">
+            <input matInput [(ngModel)]="realm" type="text" id="Region">
           </mat-form-field>
 
           <div class="form-element formInput">
@@ -34,7 +34,9 @@
       </mat-card>
 
     </div>
-
+    <div class="result">
+      
+    </div>
   </div> 
 
 </div>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-
+import {RaiderService} from './services/raider.service';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +9,9 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 })
 export class AppComponent {
   title = 'AngularCore';
+  name = 'Starks';
+  realm = 'Thunderhorn';
+  profileReponse : any;
   
   formGroup = this.formBuilder.group({
     'characterName': [null, Validators.required],
@@ -16,10 +19,17 @@ export class AppComponent {
     'validate': ''
   });
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private raiderService :RaiderService) { }
 
   ngOnInit() {
-    //this.createForm();
+    this.raiderService.getProfile(this.name, this.realm).subscribe((result: any) => {
+      this.profileReponse = result;
+      console.log(result);
+
+    }, (error) => {
+      console.log(error);
+    });
+
   }
 
 
