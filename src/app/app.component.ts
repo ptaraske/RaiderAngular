@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import {RaiderService} from './services/raider.service';
 
+import {Profile} from './model/profile.model';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -19,11 +21,13 @@ export class AppComponent {
     'validate': ''
   });
 
-  constructor(private formBuilder: FormBuilder, private raiderService :RaiderService) { }
+  constructor(private formBuilder: FormBuilder, private raiderService :RaiderService) { 
+
+  }
 
   ngOnInit() {
     this.raiderService.getProfile(this.name, this.realm).subscribe((result: any) => {
-      this.profileReponse = result;
+      this.profileReponse = result as Profile;
       console.log(result);
 
     }, (error) => {

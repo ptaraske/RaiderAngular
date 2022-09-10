@@ -1,6 +1,4 @@
-
-export class Profile{
-
+export interface Profile {
     name: string;
     race: string;
     class: string;
