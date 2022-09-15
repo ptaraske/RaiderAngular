@@ -1,0 +1,21 @@
+.profile-result{
+    border-top: solid 1px #E0E0E0;
+    font-family: Arial;
+    display: flex;
+    justify-content: center;
+    height:auto;
+  }
+
+  .profileForm{
+    padding-top: 35px;
+  }
+
+  .profileCard{
+    width:100%;
+    min-width: 750px;
+  }
+
+  .image{
+    text-align: left;
+    padding-left: 15px;;
+  }

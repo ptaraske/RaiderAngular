@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import {RaiderService} from './services/raider.service';
-
+import { MatTableDataSource } from '@angular/material/table';
 import {Profile} from './model/profile.model';
 
 @Component({
@@ -13,7 +13,11 @@ export class AppComponent {
   title = 'AngularCore';
   name = 'Starks';
   realm = 'Thunderhorn';
-  profileReponse : any;
+  profileReponse    : any;
+  characterResponse : any;
+  loadProfile = true;
+
+  dataSource = new MatTableDataSource<Profile>();
   
   formGroup = this.formBuilder.group({
     'characterName': [null, Validators.required],
@@ -26,16 +30,22 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    this.raiderService.getProfile(this.name, this.realm).subscribe((result: any) => {
-      this.profileReponse = result as Profile;
-      console.log(result);
-
-    }, (error) => {
-      console.log(error);
-    });
-
+    this.getProfile();
   }
 
+  getProfile(){
+
+    this.loadProfile = false;
+    this.raiderService.getProfile(this.name, this.realm)
+        .subscribe(response => { this.profileReponse = response; this.loadProfile = true});
+  }
+  
+  getCharacter(){
+    this.raiderService.getCharacter(this.name, this.realm)
+        .subscribe(response => { this.characterResponse = response; });
+
+        console.log(this.characterResponse);
+  }
 
   createForm() {    
     this.formGroup = this.formBuilder.group({

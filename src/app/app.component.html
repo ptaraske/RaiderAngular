@@ -26,7 +26,11 @@
           </mat-form-field>
 
           <div class="form-element formInput">
-            <button mat-button matSuffix mat-raised-button color="primary" type="submit" class="button" >Submit Form</button>
+            <button mat-button matSuffix mat-raised-button (click)="getProfile()" color="primary" type="submit" class="button" >Get Profile</button>
+          </div>
+
+          <div class="form-element formInput">
+            <button mat-button matSuffix mat-raised-button (click)="getCharacter()" color="primary" type="submit" class="button" >Get Character</button>
           </div>
 
         </mat-card-content>
@@ -34,8 +38,10 @@
       </mat-card>
 
     </div>
-    <div class="result">
-      
+    <div class="profile-result">
+
+      <app-profile *ngIf="loadProfile" [profile]="profileReponse"> </app-profile>
+
     </div>
   </div> 
 

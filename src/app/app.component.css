@@ -40,3 +40,9 @@
     display: inline-block;
   }
 
+  .profile-result{
+    display: flex;
+    justify-content: center;
+    height:auto;
+  }
+

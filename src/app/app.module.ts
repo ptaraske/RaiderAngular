@@ -9,9 +9,12 @@ import { ReactiveFormsModule } from '@angular/forms'
 import { MaterialModule } from './material.module';
 import { HttpClientModule } from '@angular/common/http';
 
+import { ProfileComponent } from './character/profile.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,24 @@
+
+<div class="profileForm">
+
+  <mat-card class="profileCard">
+    <mat-card-header>
+      <mat-card-title>{{profile.name}} of {{profile.realm}}</mat-card-title>
+    </mat-card-header>
+      
+      <mat-card-content>
+        <div class="image">
+          <img width="" [src]="profile.thumbnail_url" />
+        </div>
+        <mat-list role="list">
+          <mat-list-item role="listitem">{{profile.race}} {{profile.faction}}</mat-list-item>
+          <mat-list-item role="listitem">{{profile.class}} {{profile.active_spec_name}} </mat-list-item>
+          <mat-list-item role="listitem">Achievement points {{profile.achievement_points}} </mat-list-item>
+        </mat-list>
+    
+
+    </mat-card-content>
+
+  </mat-card>
+
+</div>
